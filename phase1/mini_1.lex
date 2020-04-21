@@ -50,6 +50,7 @@ do		{printf("DO\n");}
 "("		{printf("L_PAREN\n");}
 ")"		{printf("R_PAREN\n");}
 "+"		{printf("ADD\n");}
+"/"		{printf("DIV\n");}
 integer		{printf("INTEGER\n");}
 {COMMENT}	{}
 {NUMBER}	{printf("NUMBER %s\n",yytext);}
