@@ -10,7 +10,7 @@ DIGIT	[0-9]
 ALPHA	[a-zA-Z]
 NUMBER	{DIGIT}+
 COMMENT	(##).*
-ID	({ALPHA})(({ALPHA}|{DIGIT}|_)*({ALPHA}|{DIGIT}))?
+ID	{ALPHA}({ALPHA}|{NUMBER}|[_])*(({ALPHA}|{NUMBER})+)*
 
 %%
 function	{printf("FUNCTION\n");}
@@ -59,8 +59,9 @@ integer		{printf("INTEGER\n");}
 {COMMENT}	{}
 {NUMBER}	{printf("NUMBER %s\n",yytext);}
 {ID}		{printf("IDENT %s\n",yytext);}
-\n		{}
-.		{printf("Error at line %d, column %d: unrecognized symbol \"%s\" \n", lineNum, lineCol, yytext);}
+[ \t]+		{lineCol += yyleng;}
+\n		{++lineNum; lineCol = 1;}
+.		{printf("Error at line %d, column %d: unrecognized symbol \"%s\" \n", lineNum, lineCol, yytext);exit(0);}
 %%
 
 int main()
