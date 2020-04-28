@@ -56,7 +56,7 @@ integer		{printf("INTEGER\n");}
 {NUMBER}	{printf("NUMBER %s\n",yytext);}
 {ID}		{printf("IDENT %s\n",yytext);}
 \n		{}
-.		{}
+.		{printf("Error at line %d, column %d: unrecognized symbol \"%s\" \n", lineNum, lineCol, yytext);}
 %%
 
 main()
