@@ -1,6 +1,10 @@
 /*
  * Phase 1
  */
+%{
+int lineNum = 1, lineCol = 0;
+%}
+
 
 DIGIT	[0-9]
 ALPHA	[a-zA-Z]
@@ -59,7 +63,7 @@ integer		{printf("INTEGER\n");}
 .		{printf("Error at line %d, column %d: unrecognized symbol \"%s\" \n", lineNum, lineCol, yytext);}
 %%
 
-main()
+int main()
 {
 	yylex();
 }

@@ -564,7 +564,9 @@ char *yytext;
 /*
  * Phase 1
  */
-#line 568 "lex.yy.c"
+#line 5 "mini_1.lex"
+int lineNum = 1, lineCol = 0;
+#line 570 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -746,9 +748,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 11 "mini_1.lex"
+#line 15 "mini_1.lex"
 
-#line 752 "lex.yy.c"
+#line 754 "lex.yy.c"
 
 	if ( !(yy_init) )
 		{
@@ -833,251 +835,251 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 12 "mini_1.lex"
+#line 16 "mini_1.lex"
 {printf("FUNCTION\n");}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 13 "mini_1.lex"
+#line 17 "mini_1.lex"
 {printf("BEGIN_PARAMS\n");}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 14 "mini_1.lex"
+#line 18 "mini_1.lex"
 {printf("END_PARAMS\n");}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 15 "mini_1.lex"
+#line 19 "mini_1.lex"
 {printf("BEGIN_LOCALS\n");}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 16 "mini_1.lex"
+#line 20 "mini_1.lex"
 {printf("END_LOCALS\n");}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 17 "mini_1.lex"
+#line 21 "mini_1.lex"
 {printf("BEGIN_BODY\n");}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 18 "mini_1.lex"
+#line 22 "mini_1.lex"
 {printf("END_BODY\n");}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 19 "mini_1.lex"
+#line 23 "mini_1.lex"
 {printf("READ\n");}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 20 "mini_1.lex"
+#line 24 "mini_1.lex"
 {printf("BEGINLOOP\n");}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 21 "mini_1.lex"
+#line 25 "mini_1.lex"
 {printf("ENDLOOP\n");}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 22 "mini_1.lex"
+#line 26 "mini_1.lex"
 {printf("WHILE\n");}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 23 "mini_1.lex"
+#line 27 "mini_1.lex"
 {printf("AND\n");}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 24 "mini_1.lex"
+#line 28 "mini_1.lex"
 {printf("OR\n");}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 25 "mini_1.lex"
+#line 29 "mini_1.lex"
 {printf("OF\n");}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 26 "mini_1.lex"
+#line 30 "mini_1.lex"
 {printf("IF\n");}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 27 "mini_1.lex"
+#line 31 "mini_1.lex"
 {printf("FALSE\n");}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 28 "mini_1.lex"
+#line 32 "mini_1.lex"
 {printf("TRIEE\n");}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 29 "mini_1.lex"
+#line 33 "mini_1.lex"
 {printf("ARRAY\n");}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 30 "mini_1.lex"
+#line 34 "mini_1.lex"
 {printf("ENDIF\n");}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 31 "mini_1.lex"
+#line 35 "mini_1.lex"
 {printf("THEN\n");}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 32 "mini_1.lex"
+#line 36 "mini_1.lex"
 {printf("ELSE\n");}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 33 "mini_1.lex"
+#line 37 "mini_1.lex"
 {printf("CONTINUE\n");}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 34 "mini_1.lex"
+#line 38 "mini_1.lex"
 {printf("WRITE\n");}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 35 "mini_1.lex"
+#line 39 "mini_1.lex"
 {printf("SEMICOLON\n");}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 36 "mini_1.lex"
+#line 40 "mini_1.lex"
 {printf("COLON\n");}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 37 "mini_1.lex"
+#line 41 "mini_1.lex"
 {printf("COMMA\n");}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 38 "mini_1.lex"
+#line 42 "mini_1.lex"
 {printf("DO\n");}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 39 "mini_1.lex"
+#line 43 "mini_1.lex"
 {printf("GTE\n");}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 40 "mini_1.lex"
+#line 44 "mini_1.lex"
 {printf("GT\n");}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 41 "mini_1.lex"
+#line 45 "mini_1.lex"
 {printf("LT\n");}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 42 "mini_1.lex"
+#line 46 "mini_1.lex"
 {printf("LTE\n");}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 43 "mini_1.lex"
+#line 47 "mini_1.lex"
 {printf("ASSIGN\n");}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 44 "mini_1.lex"
+#line 48 "mini_1.lex"
 {printf("L_SQUARE_BRACKET\n");}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 45 "mini_1.lex"
+#line 49 "mini_1.lex"
 {printf("R_SQUARE_BRACKET\n");}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 46 "mini_1.lex"
+#line 50 "mini_1.lex"
 {printf("MOD\n");}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 47 "mini_1.lex"
+#line 51 "mini_1.lex"
 {printf("EQ\n");}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 48 "mini_1.lex"
+#line 52 "mini_1.lex"
 {printf("SUB\n");}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 49 "mini_1.lex"
+#line 53 "mini_1.lex"
 {printf("MULT\n");}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 50 "mini_1.lex"
+#line 54 "mini_1.lex"
 {printf("L_PAREN\n");}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 51 "mini_1.lex"
+#line 55 "mini_1.lex"
 {printf("R_PAREN\n");}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 52 "mini_1.lex"
+#line 56 "mini_1.lex"
 {printf("ADD\n");}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 53 "mini_1.lex"
+#line 57 "mini_1.lex"
 {printf("DIV\n");}
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 54 "mini_1.lex"
+#line 58 "mini_1.lex"
 {printf("INTEGER\n");}
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 55 "mini_1.lex"
+#line 59 "mini_1.lex"
 {}
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 56 "mini_1.lex"
+#line 60 "mini_1.lex"
 {printf("NUMBER %s\n",yytext);}
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 57 "mini_1.lex"
+#line 61 "mini_1.lex"
 {printf("IDENT %s\n",yytext);}
 	YY_BREAK
 case 47:
 /* rule 47 can match eol */
 YY_RULE_SETUP
-#line 58 "mini_1.lex"
+#line 62 "mini_1.lex"
 {}
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 59 "mini_1.lex"
+#line 63 "mini_1.lex"
 {printf("Error at line %d, column %d: unrecognized symbol \"%s\" \n", lineNum, lineCol, yytext);}
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 60 "mini_1.lex"
+#line 64 "mini_1.lex"
 ECHO;
 	YY_BREAK
-#line 1081 "lex.yy.c"
+#line 1083 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2074,11 +2076,11 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 60 "mini_1.lex"
+#line 64 "mini_1.lex"
 
 
 
-main()
+int main()
 {
 	yylex();
 }
