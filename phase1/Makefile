@@ -4,4 +4,5 @@ lexer:  lex.yy.c
 lex.yy.c: mini_1.lex
 	flex mini_1.lex
 clean:
-	rm lex.yy.c	
+	rm lex.yy.c
+	rm lexer*	
