@@ -1,0 +1,54 @@
+(terminals)
+[non-terminal]
+
+
+[program]       -> [function] [program] | (epsilon)
+
+[decl_loop]     -> [declaration] (;) [decl_loop] | (epsilon)
+[stmt_loop]     -> [statement] (;) [stmt_loop] | [statement] (;) (epsilon)
+
+[function]      ->  (function) (identifier) (;) (begin_params) [decl_loop] (end_params) (begin_locals) [decl_loop] (end_locals) (begin_body) [stmt_loop] (endbody)
+
+[declartion]    -> (identifier) [declaration_2]
+[declaration_2] -> (,) (identifier) [declaration_2] | (:) [declaration_3] (integer) 
+[declaration_3] -> (array) ([) (number) (]) [declaration_4] (of) | (epsilon)
+[declaration_4] -> ([) (number) (]) | (epsilon)
+
+[statement]     -> [statement_1] | [statement_2]  | [statement_3] | [statement_4] | [statement_5] | [statement_6] | (continue) | (return) [expression]
+[statement_1]   -> [var] (:=) [expression]
+[statement_2]   -> (if) [bool_exp] (then) [stmt_loop] [statement_21] (endif)
+[statement_21]  -> [(else) [stmt_loop] | (epsilon)
+[statement_3]   -> (while) [bool_exp] (beginloop) [stmt_loop] (endloop)
+[statement_4]   -> (do) (beginloop) [stmt_loop] (endloop) (while) [bool_exp]
+[statement_5]   -> (read) [var] [statement_51]
+[statement_51]  -> (,) [var] [statement_51] | (epsilon) 
+[statement_6]   -> (write) [var] [statement_61]
+[statement_61]  -> (,) [var] [statement_61] | (epsilon)
+[statement_7]	-> (for) [var] (:=) (number) (;) [bool_exp] (;) [var] (:=) [expression] (beginloop) [stmt_loop] (endloop)
+
+[bool_exp]      -> [rel_and_exp] [bool_exp2]
+[bool_exp2]     -> (or) [rel_and_exp] [bool_exp2] | (epsilon)
+
+[rel_and_exp]   -> [relation_exp] [rel_and_exp2] 
+[rel_and_exp2]  -> (and) [relation_exp] [rel_and_exp2] | (epsilon)
+
+[relation_exp]  -> [relation_exp_s] | (not) [relation_exp_s]
+[relation_exp_s]-> [expression] [comp] [expression] | (true) | (false) | (() [bool_exp]())
+
+[comp]          -> (==) | (<>) | (<) | (>) | (<=) | (>=)
+
+[expression]    -> [mult_expr] [expression_2]
+[expression_2]  -> (+) [mult_expr] [expression_2] | (-) [mult_expr] [expression_2] | (epsilon)
+
+[mult_expr]     -> [term] [mult_expr_2] 
+[mult_expr_2]   -> (*) [mult_expr] | (/) [mult_expr] | (%) [mult_expr] | (epsilon)
+
+[term]          -> (-) [term_2] | [term_2] | [term_3]
+[term_2]        -> [var] | (number) | (() [expression] ())
+[term_3]        -> (identifier) (() [term_31] ())
+[term_31]       -> [expression] [term_32] | (epsilon)
+[term_32]       -> (,) [term_31] | (epsilon)
+
+[var]           -> (identifier) [var_2]
+[var_2]         -> ([) [expression] (]) [var_3] | (epsilon)
+[var_3]		-> ([) [expression] (]) | (epsilon)
