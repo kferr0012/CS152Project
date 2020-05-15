@@ -19,17 +19,22 @@ extern char* yytext;
 
 %token BEGIN_BODY END_BODY READ BEGINLOOP ENDLOOP WHILE
 
-%token AND OR OF IF FALSE TRUE ARRAY
+%token OF IF FALSE TRUE ARRAY
 
 %token ENDIF THEN ELSE CONTINUE WRITE
 
-%token COLON COMMA DO GTE GT LT LTE ASSIGN FOR
+%token COLON COMMA DO FOR
 
-%token L_SQUARE_BRACKET R_SQUARE_BRACKET MOD EQ SUB MULT
+%token L_SQUARE_BRACKET R_SQUARE_BRACKET
 
-%token L_PAREN R_PAREN ADD DIV INTEGER NEQ NOT RETURN
+%token L_PAREN R_PAREN INTEGER NOT RETURN
+
+%left MULT DIV MOD ADD SUB LT LTE GT GTE EQ NEQ AND OR
+
+%right NOT ASSIGN
 
 %start program
+
 
 %%
 
@@ -94,6 +99,9 @@ statement:	statement_1
 		|
 		statement_6
                 {printf("statement->statement_6\n");}
+		|
+		statement_7
+		{printf("statement->statement_7\n");}
 		|
 		CONTINUE
 		{printf("statement->CONTINUE\n");}
