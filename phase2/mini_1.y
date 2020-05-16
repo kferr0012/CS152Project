@@ -13,7 +13,11 @@ extern char* yytext;
 	double dVal;
 }
 
-%token FUNCTION SEMICOLON IDENT NUMBER
+%token <cVal> IDENT
+
+%token <iVal> NUMBER
+
+%token FUNCTION SEMICOLON
 
 %token BEGIN_PARAMS END_PARAMS BEGIN_LOCALS END_LOCALS
 
@@ -33,10 +37,13 @@ extern char* yytext;
 
 %right NOT ASSIGN
 
-%start program
+%start start_program
 
 
 %%
+
+start_program:	program
+		{printf("start_program->program\n");}
 
 program: 	function program
 		{printf("program->function program\n");}
@@ -56,16 +63,15 @@ stmt_loop:      statement SEMICOLON stmt_loop
                 statement SEMICOLON /*epsilon*/
                 {printf("stmt_loop->statement SEMICOLON epsilon\n");}
 
-function:	FUNCTION IDENT SEMICOLON BEGIN_PARAMS decl_loop END_PARAMS BEGIN_LOCALS decl_loop END_LOCALS
-		BEGIN_BODY stmt_loop END_BODY
-		{printf("decl_loop->FUNCTION IDENT SEMICOLON BEGIN_PARAMS decl_loop END_PARAMS BEGIN_LOCALS decl_loop END_LOCALS BEGIN_BODY stmt_loop END_BODY\n");}
+function:	FUNCTION IDENT SEMICOLON BEGIN_PARAMS decl_loop END_PARAMS BEGIN_LOCALS decl_loop END_LOCALS BEGIN_BODY stmt_loop END_BODY
+		{printf("function->FUNCTION IDENT SEMICOLON BEGIN_PARAMS decl_loop END_PARAMS BEGIN_LOCALS decl_loop END_LOCALS BEGIN_BODY stmt_loop END_BODY\n");}
 
 
 declaration:	IDENT declaration_2
-		{printf("declaration->IDENT declaration_2\n");}
+		{printf("declaration->IDENT %s declaration_2\n",$1);}
 
 declaration_2: 	COMMA IDENT declaration_2
-		{printf("declaration_2->COMMA IDENT declaration_2\n");}
+		{printf("declaration_2->COMMA IDENT %s declaration_2\n",$2);}
 		|
 		COLON declaration_3 INTEGER
 		{printf("declaration_2->COLON declaration_3 INTEGER\n");}
@@ -242,7 +248,7 @@ term_2:	var
 	{printf("term_2->var\n");}
 	|
 	NUMBER
-	{printf("term_2->NUMBER\n");}
+	{printf("term_2->NUMBER %d\n",$1);}
 	|
 	L_PAREN expression R_PAREN
 	{printf("term_2->L_PAREN expression R_PAREN\n");}
@@ -263,7 +269,7 @@ term_32:	COMMA term_31
 		{printf("term_32->epsilon\n");}
 
 var:	IDENT var_2
-	{printf("var->IDENT var_2\n");}
+	{printf("var->IDENT %s  var_2\n", $1);}
 	
 var_2:	L_SQUARE_BRACKET expression R_SQUARE_BRACKET var_3
 	{printf("var_2->L_SQUARE_BRACKET expression R_SQUARE_BRACKET var_3\n");}

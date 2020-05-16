@@ -14,7 +14,7 @@
 [declaration_3] -> (array) ([) (number) (]) [declaration_4] (of) | (epsilon)
 [declaration_4] -> ([) (number) (]) | (epsilon)
 
-[statement]     -> [statement_1] | [statement_2]  | [statement_3] | [statement_4] | [statement_5] | [statement_6] | (continue) | (return) [expression]
+[statement]     -> [statement_1] | [statement_2]  | [statement_3] | [statement_4] | [statement_5] | [statement_6] | [statement_7] | (continue) | (return) [expression]
 [statement_1]   -> [var] (:=) [expression]
 [statement_2]   -> (if) [bool_exp] (then) [stmt_loop] [statement_21] (endif)
 [statement_21]  -> [(else) [stmt_loop] | (epsilon)

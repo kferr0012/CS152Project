@@ -64,7 +64,7 @@ do		{lineCol+=yyleng; return DO;}
 integer		{lineCol+=yyleng; return INTEGER;}
 {COMMENT}	{lineCol+=yyleng;}
 {NUMBER}	{lineCol+=yyleng; yylval.iVal = atoi(yytext); return NUMBER;}
-{ID}		{lineCol+=yyleng; yylval.cVal = yytext; return IDENT;}
+{ID}		{lineCol+=yyleng; yylval.cVal = strdup(yytext); return IDENT;}
 [ \t]+		{lineCol += yyleng;}
 {INCORRECT_ID}	{printf("Error at line %d, column %d: unrecognized symbol \"%s\" \n", lineNum, lineCol, yytext);exit(0);}
 \n		{++lineNum; lineCol = 1;}
