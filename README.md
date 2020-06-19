@@ -1,6 +1,4 @@
-# CS152Project
-
-# Compilers
+# CS152Project : Compilers
 
 Kevin Ferrer
 
